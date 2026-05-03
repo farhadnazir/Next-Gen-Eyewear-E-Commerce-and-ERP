@@ -44,13 +44,18 @@ Built with performance and scalability in mind, it replaces traditional disjoint
 
 ---
 
+
+
 ## 📸 Platform Gallery
 
-| Customer View | Admin Command Center |
-|:---:|:---:|
-| <img src="https://via.placeholder.com/600x400/f8fafc/334155?text=Product+Catalog" width="400" alt="Catalog"> | <img src="https://via.placeholder.com/600x400/f8fafc/334155?text=Analytics+Dashboard" width="400" alt="Dashboard"> |
-| **Contact Lens Engine** | **Review Moderation** |
-| <img src="https://via.placeholder.com/600x400/f8fafc/334155?text=Volume+Pricing+%26+Rx" width="400" alt="Lens Engine"> | <img src="https://via.placeholder.com/600x400/f8fafc/334155?text=Pending+Approvals" width="400" alt="Reviews"> |
+| Customer View |
+|:---:|
+| <video src="https://github.com/user-attachments/assets/ee7cd333-716a-4c4d-b475-13e6ec0757de" width="400">|
+| Admin Command Center |
+|:---:|
+| <video src="https://github.com/user-attachments/assets/06a015f5-d47e-475d-8848-d0a578f83a58" width="400" alt="Dashboard"> |
+| **Contact Lens Engine** |
+| <video src="https://github.com/user-attachments/assets/7459287c-3b2d-4fb1-b8d7-f833fd4d9887" width="400" alt="Lens Engine"> |
 
 *(Replace the placeholder URLs above with actual screenshots of your application)*
 
