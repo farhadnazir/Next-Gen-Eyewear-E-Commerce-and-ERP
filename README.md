@@ -5,7 +5,7 @@
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
 
-Next-Gen Eyewear  is a bespoke, enterprise-grade E-commerce and Inventory Management System engineered specifically for the optical industry. It seamlessly bridges the gap between complex optical prescriptions (frames, contact lenses, Rx) and a modern, high-converting retail experience.
+Next-Gen Eyewear is a bespoke, enterprise-grade E-commerce and Inventory Management System engineered specifically for the optical industry. It seamlessly bridges the gap between complex optical prescriptions (frames, contact lenses, Rx) and a modern, high-converting retail experience.
 
 Built with performance and scalability in mind, it replaces traditional disjointed tools with a unified platform for inventory sync, financial analytics, and customer relationship management.
 
@@ -34,7 +34,7 @@ Built with performance and scalability in mind, it replaces traditional disjoint
 ## 💻 Tech Stack & Development Journey
 
 **Development Timeline:** Architected and deployed within a rapid, focused development cycle.
-**Core Philosophy:** SPAs (Single Page Applications) feel without the overhead of a separate JS framework, achieved through Livewire.
+**Core Philosophy:** the feel of an SPA (Single Page Application) without the overhead of a separate JS framework, achieved through Livewire.
 
 * **Backend Framework:** Laravel 11/12
 * **Frontend Reactive Engine:** Livewire 3
@@ -48,16 +48,37 @@ Built with performance and scalability in mind, it replaces traditional disjoint
 
 ## 📸 Platform Gallery
 
-| Customer View |
-|:---:|
-| <video src="https://github.com/user-attachments/assets/ee7cd333-716a-4c4d-b475-13e6ec0757de" width="400">|
-| Admin Command Center |
-|:---:|
-| <video src="https://github.com/user-attachments/assets/06a015f5-d47e-475d-8848-d0a578f83a58" width="400" alt="Dashboard"> |
-| **Contact Lens Engine** |
-| <video src="https://github.com/user-attachments/assets/7459287c-3b2d-4fb1-b8d7-f833fd4d9887" width="400" alt="Lens Engine"> |
+### 🛍️ Storefront & Lens Engine
+<p align="center">
+  <img src="screenshots/storefront.webp" width="100%" alt="Storefront">
+</p>
+<p align="center">
+  <img src="screenshots/lens_wizard.webp" width="49%" alt="Choose lens type for a frame">
+  <img src="screenshots/checkout.webp" width="49%" alt="Secure checkout with prescription order summary">
+</p>
 
-*(Replace the placeholder URLs above with actual screenshots of your application)*
+### 📊 Admin Command Center
+<p align="center">
+  <img src="screenshots/admin_orders.webp" width="49%" alt="Order management">
+  <img src="screenshots/lens_engine_configurator.webp" width="49%" alt="Lens Engine Configurator">
+</p>
+<p align="center">
+  <img src="screenshots/admin_customers.webp" width="49%" alt="Customer management">
+</p>
+
+### 🎥 Video Walkthroughs
+
+**Customer view**
+
+https://github.com/user-attachments/assets/ee7cd333-716a-4c4d-b475-13e6ec0757de
+
+**Admin command center**
+
+https://github.com/user-attachments/assets/06a015f5-d47e-475d-8848-d0a578f83a58
+
+**Contact lens & lens engine**
+
+https://github.com/user-attachments/assets/7459287c-3b2d-4fb1-b8d7-f833fd4d9887
 
 ---
 
@@ -93,11 +114,14 @@ app/Livewire/
     └── ProductReviews.php         # Star Distribution & Submission
 ```
 
-🛡️ License & Contact
-This project is proprietary. Developed as a comprehensive solution for the optical retail sector.
+## 🛡️ License & Contact
 
-Developed by: [Farhad Nazir]
+This project is proprietary, developed as a complete solution for the optical retail sector.
 
-Role: Full Stack Developer (Laravel / Flutter)
+**Developed by:** Farhad Nazir, Full-Stack Developer (Laravel / Flutter), Founder @ Techwine Solutions
 
-Connect on linkedin: [https://www.linkedin.com/in/farhadnazir]
+* 💼 **LinkedIn:** [linkedin.com/in/farhadnazir](https://www.linkedin.com/in/farhadnazir)
+* 🌐 **GitHub:** [github.com/farhadnazir](https://github.com/farhadnazir)
+* 📫 **Email:** farhadnazir1111@gmail.com
+
+> Also by me: [**Asaan Optics**](https://github.com/farhadnazir/Asaan-Optics-App-Official), POS and shop management for optical shops on Android, Windows and iPhone/iPad.
