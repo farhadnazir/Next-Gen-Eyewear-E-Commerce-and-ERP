@@ -1,127 +1,103 @@
-# 👓 Next-Gen Eyewear E-Commerce & ERP
+# Designers Glasses: Eyewear E-Commerce and Store ERP
 
-![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
-![Livewire](https://img.shields.io/badge/Livewire-4E56A6?style=for-the-badge&logo=livewire&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+An online eyewear store with a step-by-step prescription lens configurator, a contact lens shop and a full admin back office, built with Laravel and Livewire.
 
-Next-Gen Eyewear is a bespoke, enterprise-grade E-commerce and Inventory Management System engineered specifically for the optical industry. It seamlessly bridges the gap between complex optical prescriptions (frames, contact lenses, Rx) and a modern, high-converting retail experience.
+**Live store:** [www.designersglasses.com](https://www.designersglasses.com) · **Case study:** [farhadnazir.com/projects/designers-glasses](https://farhadnazir.com/projects/designers-glasses/)
 
-Built with performance and scalability in mind, it replaces traditional disjointed tools with a unified platform for inventory sync, financial analytics, and customer relationship management.
+![Laravel](https://img.shields.io/badge/Laravel_12-FF2D20?logo=laravel&logoColor=white)
+![Livewire](https://img.shields.io/badge/Livewire_3-4E56A6?logo=livewire&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-005C84?logo=mysql&logoColor=white)
 
----
+![Step 1 of the lens configurator on the live Designers Glasses store, with the frame, a configuration summary in PKR and the vision type options](docs/screenshots/live-lens-configurator-desktop.webp)
+<sub>The lens configurator on the live store (step 1: vision type).</sub>
 
-## ✨ Highlighted Features
+> [!NOTE]
+> This repository is a **public overview** of the project. The production source code is private because this is a client project, so there is no code or setup guide here.
 
-### 🛍️ Smart Optics Catalog & Cart
-* **Complex Product Typology:** Distinct engines for Standard Frames, Sunglasses, and Contact Lenses.
-* **The Lens Engine:** Handles dynamic optical parameters (SPH, SPH-CYL, Base Curve, Diameter) natively within the cart.
-* **Volume Pricing:** Automated tier-based discounts for contact lenses (e.g., "Buy 4+ Boxes, Save 10%").
-* **Advanced Filtering:** Filter catalog by face shape, frame material, gender, and color variants.
+## About
 
-### 📦 Intelligent Inventory & ERP
-* **Variant-Level Syncing:** Real-time stock deduction on checkout and automated restocking on order cancellation.
-* **Low Stock Alerts:** Smart dashboard widget that detects low inventory across base products AND specific color/size variants.
-* **Prescription (Rx) Vault:** Customers can upload or manually input optical prescriptions, securely saved to their profile.
+Designers Glasses is a live online eyewear store in Pakistan. It sells designer frames, sunglasses, AI glasses and contact lenses, with prices in PKR. Customers can buy a frame on its own or add prescription lenses, configured step by step in the browser.
 
-### 📊 Financial Intelligence & Moderation
-* **Admin Command Center:** Real-time analytics, MoM (Month-over-Month) revenue growth, and active order tracking.
-* **Verified Review Engine:** Strict "Buyers Only" review policy with a moderation queue (Approve/Reject) and dynamic star-rating distribution charts.
-* **Automated Invoicing:** Auto-generated PDF receipts upon order completion.
+I built the whole platform on my own as the sole full-stack developer, through [Techwine Solutions](https://www.techwinesolutions.com): database design, storefront, admin back office, payment integrations, deployment and client documentation. The production codebase has 152 commits from April to October 2026.
 
----
+**Why it needed a custom build:** one prescription eyewear order combines a frame variant with a vision type, a prescription (SPH, CYL, axis, ADD, PD and sometimes prism), a lens package and coatings or tints. All of these affect the price, and some options only work with others. Contact lenses add power, base curve and diameter per eye, sold by the box. Off-the-shelf store builders do not model this.
 
-## 💻 Tech Stack & Development Journey
+## Key features
 
-**Development Timeline:** Architected and deployed within a rapid, focused development cycle.
-**Core Philosophy:** the feel of an SPA (Single Page Application) without the overhead of a separate JS framework, achieved through Livewire.
+### Storefront
 
-* **Backend Framework:** Laravel 11/12
-* **Frontend Reactive Engine:** Livewire 3
-* **Styling & UI:** Tailwind CSS, FontAwesome, Alpine.js
-* **Database:** MySQL (Relational architecture for complex variants)
-* **Authentication:** Laravel Breeze
+- **Four-step lens configurator.** Vision type, prescription, add-ons and lens package, with a live configuration summary and running total. Frame Only goes straight to the cart and Non-Prescription skips the prescription step.
+- **Flexible prescription entry.** Type the prescription (both eyes, single or dual PD, optional prism at an extra charge), upload a prescription file, or reuse the prescription saved in the customer's account.
+- **High-prescription filtering.** At SPH 4.00 or CYL 2.00 or more (plus or minus) in either eye, only packages marked as suitable for high prescriptions (thinner high-index lenses) are offered.
+- **Contact lens shop with volume pricing.** Per-eye power, base curve and diameter, a same-for-both-eyes option, box quantities and lens colors. Tier pricing applies automatically based on the total number of boxes.
+- **Catalog filters synced to the URL.** Gender, brand, category, frame shape, style, material, face shape, color, size, price and width, plus search and sorting. Filtered results can be shared and bookmarked.
+- **Customer accounts.** Order history, saved prescription, profile, wishlist and downloadable PDF invoices. Order confirmations are sent by email.
+- **Checkout.** Cash on Delivery and PayPal, with coupons. An HBLPay card checkout integration sits behind a configuration switch.
 
----
+### Admin back office (store ERP)
 
+- **Lens Engine.** Staff manage vision types, lens packages (index, thickness, branded and non-branded), add-on groups, add-ons and colors, a pricing matrix per vision type with auto-fill, and package compatibility rules. Lens options and prices live in the database, not in code.
+- **Variant-level inventory.** Stock is deducted per frame color and size at checkout, and the dashboard shows low-stock alerts across variants and base products.
+- **Analytics.** Revenue and order totals for any date range, compared with the previous period of the same length.
+- **Order management.** Filter by order type, status, payment status and date, open each order with its full prescription and lens choices, and export to Excel.
+- **Verified-buyer reviews.** Only customers who bought a product can review it. Reviews go through an approval queue, and a scheduled Artisan command auto-approves reviews pending for more than 24 hours.
+- **Store management.** Catalog and variants, customers, coupons, banners and store settings, with Excel exports for orders, customers and products.
 
+## Screenshots
 
-## 📸 Platform Gallery
+Images captioned *Recreated from the app's source code with demo data* are not captures of the live store and show no real customers or orders.
 
-### 🛍️ Storefront & Lens Engine
-<p align="center">
-  <img src="screenshots/storefront.webp" width="100%" alt="Storefront">
-</p>
-<p align="center">
-  <img src="screenshots/lens_wizard.webp" width="49%" alt="Choose lens type for a frame">
-  <img src="screenshots/checkout.webp" width="49%" alt="Secure checkout with prescription order summary">
-</p>
+| | |
+|:---:|:---:|
+| <img src="docs/screenshots/live-home-desktop.webp" alt="Designers Glasses live home page with the campaign hero and the main navigation for eyeglasses, sunglasses, contact lenses, brands, new arrivals, lenses and sale"> | <img src="docs/screenshots/recreated-lens-configurator.webp" alt="Lens configurator prescription step with SPH, CYL, axis and ADD for each eye, dual PD, lab instructions and a live PKR price summary"> |
+| Live store home page and main navigation. | Configurator step 2: manual prescription, dual PD and live price summary.<br><sub>Recreated from the app's source code with demo data.</sub> |
+| <img src="docs/screenshots/recreated-admin-dashboard.webp" alt="Admin dashboard with a date range filter, revenue and order KPIs compared with the previous period, recently added products and low stock alerts"> | <img src="docs/screenshots/recreated-admin-orders.webp" alt="Admin order management with filters for order type, status, payment status and date, order type badges, PKR totals and Excel export"> |
+| Admin dashboard: date-filtered KPIs, recent products and low-stock alerts.<br><sub>Recreated from the app's source code with demo data.</sub> | Order management with filters, order type badges and Excel export.<br><sub>Recreated from the app's source code with demo data.</sub> |
+| <img src="docs/screenshots/recreated-storefront-home.webp" alt="Storefront home page with campaign hero, trust points, brand strip, category tiles and a Best Sellers grid priced in PKR"> | <img src="docs/screenshots/recreated-mobile-home.webp" alt="Mobile storefront with a Sunglasses banner and a two-column Best Sellers grid with PKR prices" width="60%"> |
+| Storefront home: hero, brand strip, category tiles and Best Sellers.<br><sub>Recreated from the app's source code with demo data.</sub> | Mobile storefront with the Best Sellers grid.<br><sub>Recreated from the app's source code with demo data.</sub> |
 
-### 📊 Admin Command Center
-<p align="center">
-  <img src="screenshots/admin_orders.webp" width="49%" alt="Order management">
-  <img src="screenshots/lens_engine_configurator.webp" width="49%" alt="Lens Engine Configurator">
-</p>
-<p align="center">
-  <img src="screenshots/admin_customers.webp" width="49%" alt="Customer management">
-</p>
+## Tech stack
 
-### 🎥 Video Walkthroughs
+| Area | Technology |
+|---|---|
+| Backend | Laravel 12, PHP 8.2 |
+| Front end | Livewire 3, Blade, Tailwind CSS, Alpine.js, Vite |
+| Database | MySQL |
+| Auth | Laravel Breeze (email verification, role-based admin middleware) |
+| Payments | Cash on Delivery, PayPal JS SDK, HBLPay (behind a configuration switch) |
+| Documents | DomPDF (invoices), Laravel Excel (exports) |
 
-**Customer view**
+## Architecture
 
-https://github.com/user-attachments/assets/ee7cd333-716a-4c4d-b475-13e6ec0757de
+The platform is a single Laravel application. The storefront and the admin panel are both built from Livewire 3 components (37 in total, most of them full pages), which gives an app-like feel without a separate JavaScript front end. Data lives in MySQL across 56 migrations and 32 Eloquent models.
 
-**Admin command center**
+- **Data-driven lens pricing.** Lens options are modeled as related tables (vision usages, packages, add-on groups, add-ons, colors, a per-usage pricing matrix and compatibility rules), so the store can change its lens offer and prices without a developer.
+- **Rule-based configurator flow.** The configurator decides which steps to show from the selected vision type, validates the prescription and narrows the lens packages for high prescriptions.
+- **Prescription stored with each order.** Each order item keeps the full prescription and lens choices as structured data, so staff have everything needed to fulfil the order in one place.
+- **Encrypted card gateway integration.** The HBLPay integration encrypts each order payload with a fresh AES key, RSA-encrypts the credentials and key, decrypts the return payload and maps response codes to order status.
+- **Reusable Excel export.** One export class and button component exports any model with a date range, filters and optional joins.
+- **Auth and roles.** A role column and admin middleware protect the back office, and customers and staff are redirected to their own areas after login.
 
-https://github.com/user-attachments/assets/06a015f5-d47e-475d-8848-d0a578f83a58
+## Links
 
-**Contact lens & lens engine**
+- Live store: [www.designersglasses.com](https://www.designersglasses.com)
+- Case study: [farhadnazir.com/projects/designers-glasses](https://farhadnazir.com/projects/designers-glasses/)
+- More projects: [farhadnazir.com/projects](https://farhadnazir.com/projects/)
 
-https://github.com/user-attachments/assets/7459287c-3b2d-4fb1-b8d7-f833fd4d9887
+## Author
 
----
+**Farhad Nazir**, full-stack software developer and founder of [Techwine Solutions](https://www.techwinesolutions.com)
 
-## 🗄️ Core Database Schema
+- Website: [farhadnazir.com](https://farhadnazir.com)
+- Email: [farhadnazirksa@gmail.com](mailto:farhadnazirksa@gmail.com)
+- LinkedIn: [linkedin.com/in/farhadnazir](https://www.linkedin.com/in/farhadnazir)
+- WhatsApp: [+966 53 656 6380](https://wa.me/966536566380)
 
-The architecture is highly relational to support the optical business logic:
+Need a store or ERP like this? [Get in touch](https://farhadnazir.com/contact/).
 
-* `users`: Core authentication and role management (Admin/Customer).
-* `products`: Base product information, type (Frame/Lens), and base pricing.
-* `product_variants`: Handles colors, size categories, and variant-specific stock levels.
-* `contact_lens_details`: specialized table for SPH limits, BC, DIA, and JSON volume pricing.
-* `orders` & `order_items`: Financial transactions and cart history.
-* `product_reviews`: Verified buyer ratings, linked to `users` and `products` with status toggles.
+Also by me: [Asaan Optics](https://github.com/farhadnazir/Asaan-Optics-App-Official), POS and shop management software for optical shops.
 
----
+## License
 
-## 📂 Project Architecture (Livewire Approach)
-
-The application relies heavily on component-based architecture for real-time reactivity without page reloads:
-
-```text
-app/Livewire/
-├── Admin/
-│   ├── Dashboard.php              # Analytics & Low Stock Logic
-│   ├── ProductManager.php         # Base CRUD
-│   ├── ProductVariantManager.php  # Variant Engine
-│   ├── ContactLensManager.php     # Rx & Volume Configurator
-│   └── ReviewManagement.php       # Moderation Queue
-└── Frontend/
-    ├── ProductCatalog.php         # Advanced Filtering
-    ├── ContactLensShopper.php     # Rx Input & Tiered Pricing Cart
-    ├── CheckoutPage.php           # Secure Checkout & Stock Deduct
-    └── ProductReviews.php         # Star Distribution & Submission
-```
-
-## 🛡️ License & Contact
-
-This project is proprietary, developed as a complete solution for the optical retail sector.
-
-**Developed by:** Farhad Nazir, Full-Stack Developer (Laravel / Flutter), Founder @ Techwine Solutions
-
-* 💼 **LinkedIn:** [linkedin.com/in/farhadnazir](https://www.linkedin.com/in/farhadnazir)
-* 🌐 **GitHub:** [github.com/farhadnazir](https://github.com/farhadnazir)
-* 📫 **Email:** farhadnazir1111@gmail.com
-
-> Also by me: [**Asaan Optics**](https://github.com/farhadnazir/Asaan-Optics-App-Official), POS and shop management for optical shops on Android, Windows and iPhone/iPad.
+Proprietary. This repository contains documentation and screenshots only. The store name and brand belong to their owner.
